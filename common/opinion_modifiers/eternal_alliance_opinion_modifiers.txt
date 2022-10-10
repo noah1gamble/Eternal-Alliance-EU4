@@ -1,0 +1,9 @@
+	#####################
+	# OPINION MODIFIERS #
+	#####################
+
+	ea_eternal_alliance_modifier = {
+		opinion = 2000
+		min = 1999
+		max = 2000
+	}

@@ -1,0 +1,12 @@
+# Eternal Alliance Static Modifiers
+
+ae_eternal_alliance_not_gp_modifier = {
+	improve_relation_modifier = -0.05
+	diplomatic_reputation = -1
+}
+
+ae_eternal_alliance_gp_modifier = {
+	improve_relation_modifier = -0.1
+	diplomatic_reputation = -1
+	diplomatic_upkeep = -1
+}

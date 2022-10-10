@@ -1,0 +1,24 @@
+﻿l_english:
+
+  # Eternal Alliance
+
+    # Tooltips
+
+      ea_eternal_alliance_not_gp: "§Y[From.GetName]§! is §RNOT§! a §YGreat Power§!."
+      ea_eternal_alliance_gp: "§Y[From.GetName]§! is a §YGreat Power§!."
+
+    # Diplomatic Action
+
+      et_eternal_alliance_title: "Suggest Eternal Alliance"
+      et_eternal_alliance_tooltip: "\n\n§R- We will receieve a negative debuff to diplomacy due to the threat this poses to other nations and neighbors.§!\n§R- We may only sign a single Eternal Alliance with any nation of our choice should they accept.§!\n§R- If we sign an Eternal Alliance with a Great Power, our dipolmatic efficiency hit will be greater.§!\n\nSuggest we sign an Eternal Alliance, establishing an everlasting pact between our nations."
+      et_eternal_alliance_desc: "Do you wish to suggest an Eternal Alliance to the [FRA.Monarch.GetTitle] of the [From.GetAdjective] [From.GovernmentName]?\nThis will establish an alliance between our two nations that cannot be broken by a Rivalry, but comes at a cost to diplomatic efficiency."
+      eternal_alliance_alert_tooltip: "[From.GetName] suggests we sign an Eternal Alliance."
+
+    # Opinion Modifiers
+
+      ea_eternal_alliance_modifier: "Eternal Alliance"
+
+    # Static Modifiers
+
+      ae_eternal_alliance_not_gp_modifier: "Eternal Alliance"
+      ae_eternal_alliance_gp_modifier: "Great Power Eternal Alliance"

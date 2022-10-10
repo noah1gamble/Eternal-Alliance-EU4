@@ -1,0 +1,3 @@
+Allows you to formalize a single Eternal Alliance with an AI, which prevents them from breaking your alliance suddenly and forming a rivalry, allowing you to keep an AI that you prefer on your side.
+
+Description will be updated later.

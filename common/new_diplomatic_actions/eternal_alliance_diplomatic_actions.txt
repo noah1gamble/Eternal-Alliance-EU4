@@ -1,0 +1,175 @@
+	####################
+ 	# Eternal Alliance #
+	####################
+
+	et_eternal_alliance = {
+		category = alliance
+
+		alert_index = 17
+		alert_tooltip = eternal_alliance_alert_tooltip
+
+		require_acceptance = yes # Whether the recipient gets an option to decline
+
+		is_visible = {
+			OR = {
+				alliance_with = FROM
+				AND = {
+					NOT = { alliance_with = FROM }
+					trust = {
+						who = FROM
+						value = 90
+					}
+				}
+			}
+			NOT = {
+				OR = {
+					has_country_flag = ea_eternal_alliance_not_gp
+					has_country_flag = ea_eternal_alliance_gp
+				}
+			}
+		}
+		is_allowed = {
+			OR = {
+				alliance_with = FROM
+				AND = {
+					NOT = { alliance_with = FROM }
+					trust = {
+						who = FROM
+						value = 90
+					}
+					trust = {
+						who = ROOT
+						value = 90
+					}
+				}
+			}
+			NOT = {
+				OR = {
+					has_country_flag = ea_eternal_alliance_not_gp
+					has_country_flag = ea_eternal_alliance_gp
+				}
+			}
+		}
+		on_accept = {
+			create_alliance = FROM
+			add_opinion = {
+				who = FROM
+				modifier = ea_eternal_alliance_modifier
+			}
+			add_historical_friend = FROM
+			FROM = {
+				add_opinion = {
+					who = PREV
+					modifier = ea_eternal_alliance_modifier
+				}
+				add_historical_friend = PREV
+			}
+			add_trust = {
+				who = FROM
+				value = 10
+				mutual = yes
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_great_power = no
+					}
+				}
+				set_country_flag = ea_eternal_alliance_not_gp
+				add_country_modifier = {
+					name = ae_eternal_alliance_not_gp_modifier
+					duration = 36500
+					hidden = no
+				}
+				FROM = {
+					add_country_modifier = {
+						name = ae_eternal_alliance_not_gp_modifier
+						duration = 36500
+						hidden = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						is_great_power = yes
+					}
+				}
+				set_country_flag = ea_eternal_alliance_gp
+				add_country_modifier = {
+					name = ae_eternal_alliance_gp_modifier
+					duration = 36500
+					hidden = no
+				}
+				FROM = {
+					add_country_modifier = {
+						name = ae_eternal_alliance_gp_modifier
+						duration = 36500
+						hidden = no
+					}
+				}
+			}
+		}
+
+		on_decline = {
+			add_trust = {
+				who = FROM
+				value = -50
+				mutual = yes
+			}
+		}
+
+		ai_acceptance = {
+			# Trust
+			add_entry = {
+				name = TRUST
+				export_to_variable = {
+					variable_name = ai_value
+					value = trust
+					who = FROM
+					with = ROOT
+				}
+				subtract_variable = {
+					which = ai_value
+					value = 50
+				}
+				#1 trust = +4 ai points
+				multiply_variable = {
+					which = ai_value
+					value = 1.5
+				}
+			}
+			# Opinion
+			add_entry = {
+				name = OPINION
+				export_to_variable = {
+					variable_name = ai_value
+					value = opinion
+					who = FROM
+					with = ROOT
+				}
+				multiply_variable = {
+					which = ai_value
+					value = 0.5
+				}
+			}
+			# Diplo rep
+			add_entry = {
+				name = diplomatic_reputation
+				limit = { }
+				export_to_variable = {
+					variable_name = ai_value
+					value = trigger_value:diplomatic_reputation
+				}
+				#1 rep = 2
+				multiply_variable = {
+					which = ai_value
+					value = 2
+				}
+			}
+		}
+
+		ai_will_do = { # this is a trigger
+			always = no
+		}
+	}
